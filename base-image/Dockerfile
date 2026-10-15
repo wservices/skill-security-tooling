@@ -11,7 +11,7 @@
 FROM kalilinux/kali-rolling
 
 LABEL org.opencontainers.image.title="agents-cyber-base" \
-      org.opencontainers.image.source="https://gitlab.wservices.ch/agents/shared/cybersecurity/security-tooling" \
+      org.opencontainers.image.source="https://gitlab.wservices.ch/skills/security/security-tooling" \
       org.opencontainers.image.description="Kali Rolling + shared CLI utilities for Hermes cybersecurity agents" \
       org.opencontainers.image.licenses="MIT"
 

@@ -1,6 +1,6 @@
 include:
   - project: 'agents/platform'
-    ref: v0.1.1
+    ref: v0.1.2
     file: '/ci/skill-ci.gitlab-ci.yml'
 
 # Static validation + mocked tests only. The base image is NOT built in CI here
