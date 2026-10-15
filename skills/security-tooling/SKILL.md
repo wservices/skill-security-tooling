@@ -8,7 +8,7 @@ platforms: [linux]
 metadata:
   hermes:
     tags: [kali, tooling, apt, install, verification]
-    related_skills: [cve-research]
+    related_skills: [cve-research, tool-intel]
 ---
 
 # Security Tooling Skill
@@ -71,6 +71,10 @@ osv-scanner --version
 4. **Final verification.** Run `verify_tools.sh --from-file tools/verify.txt`.
    Completion: "all N tools present"; otherwise the missing list is non-empty and
    you stop and fix it.
+5. **Learn usage + track drift.** This skill *installs*; the general `tool-intel`
+   skill *learns* what got installed (version, man-page usage) and flags drift as
+   the rolling image updates. After install, run its
+   `tool_learn.py learn --manifest tools/packages.txt`.
 
 ## Pitfalls
 
