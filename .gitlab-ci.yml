@@ -1,0 +1,8 @@
+include:
+  - project: 'agents/platform'
+    ref: v0.1.0
+    file: '/ci/skill-ci.gitlab-ci.yml'
+
+# Static validation + mocked tests only. The base image is NOT built in CI here
+# (no privileged docker build on shared runners); build/pin it in a dedicated
+# image pipeline. See base-image/README.md.

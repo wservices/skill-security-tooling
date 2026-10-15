@@ -1,0 +1,63 @@
+# Shared base CLI utilities for cybersecurity agent containers (Kali Rolling).
+# One package per line; '#' comments and blank lines ignored.
+# Verified as Debian/Kali APT package names. Role-specific and heavy tools are
+# NOT here — each role adds its own tools/packages.txt layer.
+#
+# Deliberately excluded (see base-image/README.md): the kali-linux-* metapackages
+# (too large), GUI apps, zeek (not reliably in Kali apt — see notes), and any
+# tool a role doesn't broadly need.
+
+# --- shells & core ---
+bash
+coreutils
+findutils
+procps
+file
+less
+vim-tiny
+nano
+
+# --- fetch & transfer ---
+curl
+wget
+ca-certificates
+openssh-client
+openssl
+gnupg
+
+# --- vcs & data wrangling ---
+git
+jq
+ripgrep
+fd-find            # provides the 'fdfind' binary (not 'fd')
+
+# --- python toolchain ---
+python3
+python3-venv
+python3-pip
+pipx
+
+# --- networking / DNS ---
+iproute2
+iputils-ping
+dnsutils           # provides 'dig', 'nslookup'
+whois
+traceroute
+netcat-openbsd     # provides 'nc'
+socat
+
+# --- packet / traffic (need --cap-add NET_RAW at runtime to capture) ---
+tcpdump
+tshark             # Wireshark CLI; install preseeds dumpcap non-setuid (see Dockerfile)
+
+# --- scanning (core) ---
+nmap
+
+# --- archives ---
+unzip
+zip
+tar
+
+# --- notes ---
+# yq: install via pipx (python 'yq' wraps jq) — APT 'yq' name is ambiguous across
+#     distros. Handled in install_from_manifest.sh, not here.
